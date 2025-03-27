@@ -410,3 +410,4 @@ insert into
       base
   );
 
+ANALYZE;
