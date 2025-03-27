@@ -1,5 +1,5 @@
 [setup]
-statement_files = ["sql/bringg_setup.sql"]
+statement_files = ["sql/bringg_setup.sql", "sql/bringg_tables_ingestion_small.sql"]
 
 [[queries]]
 name = "New History Page Main Query - Merchant #1"

@@ -1,5 +1,5 @@
 [setup]
-statement_files = ["sql/bringg_setup.sql"]
+statement_files = ["sql/bringg_setup.sql", "sql/bringg_tables_ingestion_large.sql"]
 
 [[queries]]
 name = "Load Tasks"
