@@ -1,5 +1,8 @@
 [setup]
-statement_files = ["sql/bringg_setup.sql", "sql/bringg_tables_ingestion_small.sql"]
+statement_files = [
+  "sql/bringg_setup.sql",
+  "sql/bringg_tables_ingestion_small.sql",
+]
 
 [[queries]]
 name = "New History Page Main Query - Merchant #1"
@@ -15,7 +18,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -32,7 +35,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -49,7 +52,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -66,7 +69,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -83,7 +86,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -98,7 +101,7 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and merchant_id = 1
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -113,7 +116,7 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and merchant_id = 2
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -128,7 +131,7 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and merchant_id = 3
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -143,7 +146,7 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and merchant_id = 4
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -158,7 +161,7 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and merchant_id = 5
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -176,7 +179,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -194,7 +197,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -212,7 +215,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -230,7 +233,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -248,7 +251,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -264,7 +267,7 @@ statement = '''
     and merchant_id = 1
     and team_id = 6
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -280,7 +283,7 @@ statement = '''
     and merchant_id = 2
     and team_id = 6
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -296,7 +299,7 @@ statement = '''
     and merchant_id = 3
     and team_id = 6
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -312,7 +315,7 @@ statement = '''
     and merchant_id = 4
     and team_id = 6
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 
@@ -329,7 +332,7 @@ statement = '''
     and merchant_id = 5
     and team_id = 6
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -347,7 +350,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -365,7 +368,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -383,7 +386,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -401,7 +404,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -419,7 +422,7 @@ statement = '''
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -435,7 +438,7 @@ statement = '''
     and merchant_id = 1
     and team_id in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200)
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -451,7 +454,7 @@ statement = '''
     and merchant_id = 2
     and team_id in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200)
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -467,7 +470,7 @@ statement = '''
     and merchant_id = 3
     and team_id in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200)
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -483,7 +486,7 @@ statement = '''
     and merchant_id = 4
     and team_id in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200)
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 
@@ -500,7 +503,7 @@ statement = '''
     and merchant_id = 5
     and team_id in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200)
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -516,12 +519,14 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp.merchant_id = 1
+    and c.merchant_id = 1
     and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer')
+    and match(c.name_ngram, 'Ste') using best_fields with (operator='and')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -537,12 +542,14 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp.merchant_id = 2
+    and c.merchant_id = 2
     and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer')
+    and match(c.name_ngram, 'Ste') using best_fields with (operator='and')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -558,12 +565,14 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp.merchant_id = 3
+    and c.merchant_id = 3
     and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer')
+    and match(c.name_ngram, 'Ste') using best_fields with (operator='and')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -579,12 +588,14 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp.merchant_id = 4
+    and c.merchant_id = 4
     and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer')
+    and match(c.name_ngram, 'Ste') using best_fields with (operator='and')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -600,12 +611,14 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp.merchant_id = 5
+    and c.merchant_id = 5
     and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer')
+    and match(c.name_ngram, 'Ste') using best_fields with (operator='and')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -621,10 +634,12 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp.merchant_id = 1
+    and c.merchant_id = 1
     and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer');
+    and match(c.name_ngram, 'Ste') using best_fields with (operator='and');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -640,10 +655,12 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp.merchant_id = 2
+    and c.merchant_id = 2
     and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer');
+    and match(c.name_ngram, 'Ste') using best_fields with (operator='and');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -659,10 +676,12 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp.merchant_id = 3
+    and c.merchant_id = 3
     and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer');
+    and match(c.name_ngram, 'Ste') using best_fields with (operator='and');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -678,10 +697,12 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp.merchant_id = 4
+    and c.merchant_id = 4
     and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer');
+    and match(c.name_ngram, 'Ste') using best_fields with (operator='and');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -697,10 +718,12 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp.merchant_id = 5
+    and c.merchant_id = 5
     and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer');
+    and match(c.name_ngram, 'Ste') using best_fields with (operator='and');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -716,11 +739,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp.merchant_id = 1
+    and c.merchant_id = 1
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -736,11 +761,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp.merchant_id = 2
+    and c.merchant_id = 2
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -756,11 +783,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp.merchant_id = 3
+    and c.merchant_id = 3
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -776,11 +805,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp.merchant_id = 4
+    and c.merchant_id = 4
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -796,11 +827,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp.merchant_id = 5
+    and c.merchant_id = 5
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -816,9 +849,11 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp.merchant_id = 1
+    and c.merchant_id = 1
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -834,9 +869,11 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp.merchant_id = 2
+    and c.merchant_id = 2
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -852,9 +889,11 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp.merchant_id = 3
+    and c.merchant_id = 3
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -870,9 +909,11 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp.merchant_id = 4
+    and c.merchant_id = 4
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -888,9 +929,11 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp.merchant_id = 5
+    and c.merchant_id = 5
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -905,12 +948,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp.merchant_id = 1
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -925,12 +969,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp.merchant_id = 2
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -945,12 +990,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp.merchant_id = 3
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -965,12 +1011,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp.merchant_id = 4
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -985,12 +1032,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp.merchant_id = 5
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1005,10 +1053,11 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp.merchant_id = 1
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours';
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1023,10 +1072,11 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp.merchant_id = 2
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours';
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1041,10 +1091,11 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp.merchant_id = 3
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours';
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1059,10 +1110,11 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp.merchant_id = 4
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours';
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1077,10 +1129,11 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp.merchant_id = 5
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours';
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1095,13 +1148,13 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1116,13 +1169,13 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1137,13 +1190,13 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1158,13 +1211,13 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1179,13 +1232,13 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1200,11 +1253,11 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1219,11 +1272,11 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1238,11 +1291,11 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1257,11 +1310,11 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1276,11 +1329,11 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1296,17 +1349,19 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp1.merchant_id = 1
+    and wp2.merchant_id = 1
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer')
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Main Query - Task Title/External ID - Merchant #2"
+name = "New History Page Main Query - Task Type ID and WP1 City and WP2 Address - Merchant #2"
 statement = '''
   select 
     distinct t.id
@@ -1318,17 +1373,19 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp1.merchant_id = 2
+    and wp2.merchant_id = 2
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer')
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Main Query - Task Title/External ID - Merchant #3"
+name = "New History Page Main Query - Task Type ID and WP1 City and WP2 Address - Merchant #3"
 statement = '''
   select 
     distinct t.id
@@ -1340,17 +1397,19 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp1.merchant_id = 3
+    and wp2.merchant_id = 3
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer')
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Main Query - Task Title/External ID - Merchant #4"
+name = "New History Page Main Query - Task Type ID and WP1 City and WP2 Address - Merchant #4"
 statement = '''
   select 
     distinct t.id
@@ -1362,17 +1421,19 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp1.merchant_id = 4
+    and wp2.merchant_id = 4
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer')
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Main Query - Task Title/External ID - Merchant #5"
+name = "New History Page Main Query - Task Type ID and WP1 City and WP2 Address - Merchant #5"
 statement = '''
   select 
     distinct t.id
@@ -1384,17 +1445,19 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp1.merchant_id = 5
+    and wp2.merchant_id = 5
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer')
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and')
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Count Query - Task Title/External ID - Merchant #1"
+name = "New History Page Count Query - Task Type ID and WP1 City and WP2 Address - Merchant #1"
 statement = '''
   select 
     count(distinct t.id)
@@ -1406,15 +1469,17 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp1.merchant_id = 1
+    and wp2.merchant_id = 1
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer');
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Count Query - Task Title/External ID - Merchant #2"
+name = "New History Page Count Query - Task Type ID and WP1 City and WP2 Address - Merchant #2"
 statement = '''
   select 
     count(distinct t.id)
@@ -1426,15 +1491,17 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp1.merchant_id = 2
+    and wp2.merchant_id = 2
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer');
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Count Query - Task Title/External ID - Merchant #3"
+name = "New History Page Count Query - Task Type ID and WP1 City and WP2 Address - Merchant #3"
 statement = '''
   select 
     count(distinct t.id)
@@ -1446,15 +1513,17 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp1.merchant_id = 3
+    and wp2.merchant_id = 3
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer');
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Count Query - Task Title/External ID - Merchant #4"
+name = "New History Page Count Query - Task Type ID and WP1 City and WP2 Address - Merchant #4"
 statement = '''
   select 
     count(distinct t.id)
@@ -1466,15 +1535,17 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp1.merchant_id = 4
+    and wp2.merchant_id = 4
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer');
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Count Query - Task Title/External ID - Merchant #5"
+name = "New History Page Count Query - Task Type ID and WP1 City and WP2 Address - Merchant #5"
 statement = '''
   select 
     count(distinct t.id)
@@ -1486,11 +1557,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp1.merchant_id = 5
+    and wp2.merchant_id = 5
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer');
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and');
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1506,13 +1579,15 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp.merchant_id = 1
+    and c.merchant_id = 1
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1528,13 +1603,15 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp.merchant_id = 2
+    and c.merchant_id = 2
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1550,13 +1627,15 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp.merchant_id = 3
+    and c.merchant_id = 3
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1572,13 +1651,15 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp.merchant_id = 4
+    and c.merchant_id = 4
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1594,13 +1675,15 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp.merchant_id = 5
+    and c.merchant_id = 5
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1616,11 +1699,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp.merchant_id = 1
+    and c.merchant_id = 1
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours';
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1636,11 +1721,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp.merchant_id = 2
+    and c.merchant_id = 2
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours';
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1656,11 +1743,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp.merchant_id = 3
+    and c.merchant_id = 3
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours';
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1676,11 +1765,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp.merchant_id = 4
+    and c.merchant_id = 4
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours';
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1696,11 +1787,13 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp.merchant_id = 5
+    and c.merchant_id = 5
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours';
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1716,17 +1809,19 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp.merchant_id = 1
+    and c.merchant_id = 1
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1742,17 +1837,19 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp.merchant_id = 2
+    and c.merchant_id = 2
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1768,17 +1865,19 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp.merchant_id = 3
+    and c.merchant_id = 3
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1794,17 +1893,19 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp.merchant_id = 4
+    and c.merchant_id = 4
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1820,17 +1921,19 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp.merchant_id = 5
+    and c.merchant_id = 5
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1846,15 +1949,17 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp.merchant_id = 1
+    and c.merchant_id = 1
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1870,15 +1975,17 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp.merchant_id = 2
+    and c.merchant_id = 2
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1894,15 +2001,17 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp.merchant_id = 3
+    and c.merchant_id = 3
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1918,15 +2027,17 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp.merchant_id = 4
+    and c.merchant_id = 4
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1942,15 +2053,17 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp.merchant_id = 5
+    and c.merchant_id = 5
     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1966,10 +2079,12 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp.merchant_id = 1
+    and c.merchant_id = 1
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -1985,10 +2100,12 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp.merchant_id = 2
+    and c.merchant_id = 2
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -2004,10 +2121,12 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp.merchant_id = 3
+    and c.merchant_id = 3
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -2023,10 +2142,12 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp.merchant_id = 4
+    and c.merchant_id = 4
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
@@ -2042,14 +2163,16 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp.merchant_id = 5
+    and c.merchant_id = 5
   limit 
     26
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Count Query - Merchant #1"
+name = "New History Page Count Query - Unnecessary Joins - Merchant #1"
 statement = '''
   select 
     count(distinct t.id)
@@ -2061,12 +2184,14 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
+    and wp.merchant_id = 1
+    and c.merchant_id = 1
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Count Query - Merchant #2"
+name = "New History Page Count Query - Unnecessary Joins - Merchant #2"
 statement = '''
   select 
     count(distinct t.id)
@@ -2078,12 +2203,14 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
+    and wp.merchant_id = 2
+    and c.merchant_id = 2
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Count Query - Merchant #3"
+name = "New History Page Count Query - Unnecessary Joins - Merchant #3"
 statement = '''
   select 
     count(distinct t.id)
@@ -2095,12 +2222,14 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
+    and wp.merchant_id = 3
+    and c.merchant_id = 3
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Count Query - Merchant #4"
+name = "New History Page Count Query - Unnecessary Joins - Merchant #4"
 statement = '''
   select 
     count(distinct t.id)
@@ -2112,12 +2241,14 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
+    and wp.merchant_id = 4
+    and c.merchant_id = 4
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [[queries]]
-name = "New History Page Count Query - Merchant #5"
+name = "New History Page Count Query - Unnecessary Joins - Merchant #5"
 statement = '''
   select 
     count(distinct t.id)
@@ -2129,8 +2260,10 @@ statement = '''
     status IN (4,7) 
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
+    and wp.merchant_id = 5
+    and c.merchant_id = 5
 '''
-iterations = 50
+iterations = 20
 concurrency = 2
 
 [teardown]
