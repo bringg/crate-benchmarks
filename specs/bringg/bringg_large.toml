@@ -2184,6 +2184,8 @@ concurrency = 2
 #     status IN (4,7) 
 #     and ended_time > now() - interval '45 days'
 #     and t.merchant_id = 1
+#     and wp.merchant_id = 1
+#     and c.merchant_id = 1
 # '''
 # iterations = 20
 # concurrency = 2
@@ -2201,6 +2203,8 @@ concurrency = 2
 #     status IN (4,7) 
 #     and ended_time > now() - interval '45 days'
 #     and t.merchant_id = 2
+#     and wp.merchant_id = 2
+#     and c.merchant_id = 2
 # '''
 # iterations = 20
 # concurrency = 2
@@ -2218,6 +2222,8 @@ concurrency = 2
 #     status IN (4,7) 
 #     and ended_time > now() - interval '45 days'
 #     and t.merchant_id = 3
+#     and wp.merchant_id = 3
+#     and c.merchant_id = 3
 # '''
 # iterations = 20
 # concurrency = 2
@@ -2235,6 +2241,8 @@ concurrency = 2
 #     status IN (4,7) 
 #     and ended_time > now() - interval '45 days'
 #     and t.merchant_id = 4
+#     and wp.merchant_id = 4
+#     and c.merchant_id = 4
 # '''
 # iterations = 20
 # concurrency = 2
@@ -2252,6 +2260,8 @@ concurrency = 2
 #     status IN (4,7) 
 #     and ended_time > now() - interval '45 days'
 #     and t.merchant_id = 5
+#     and wp.merchant_id = 5
+#     and c.merchant_id = 5
 # '''
 # iterations = 20
 # concurrency = 2
