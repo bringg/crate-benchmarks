@@ -506,435 +506,435 @@ statement = '''
 iterations = 20
 concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - First WP Customer Name - Merchant #1"
-statement = '''
-  select 
-    distinct t.id
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 1
-    and wp.merchant_id = 1
-    and c.merchant_id = 1
-    and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer')
-  limit
-    26;
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - First WP Customer Name - Merchant #1"
+# statement = '''
+#   select 
+#     distinct t.id
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 1
+#     and wp.merchant_id = 1
+#     and c.merchant_id = 1
+#     and position = 1
+#     and match(c.name_ngram, 'Ste') using best_fields with (operator='and')
+#   limit
+#     26;
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - First WP Customer Name - Merchant #2"
-statement = '''
-  select 
-    distinct t.id
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 2
-    and wp.merchant_id = 2
-    and c.merchant_id = 2
-    and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer')
-  limit
-    26;
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - First WP Customer Name - Merchant #2"
+# statement = '''
+#   select 
+#     distinct t.id
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 2
+#     and wp.merchant_id = 2
+#     and c.merchant_id = 2
+#     and position = 1
+#     and match(c.name_ngram, 'Ste') using best_fields with (operator='and')
+#   limit
+#     26;
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - First WP Customer Name - Merchant #3"
-statement = '''
-  select 
-    distinct t.id
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 3
-    and wp.merchant_id = 3
-    and c.merchant_id = 3
-    and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer')
-  limit
-    26;
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - First WP Customer Name - Merchant #3"
+# statement = '''
+#   select 
+#     distinct t.id
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 3
+#     and wp.merchant_id = 3
+#     and c.merchant_id = 3
+#     and position = 1
+#     and match(c.name_ngram, 'Ste') using best_fields with (operator='and')
+#   limit
+#     26;
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - First WP Customer Name - Merchant #4"
-statement = '''
-  select 
-    distinct t.id
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 4
-    and wp.merchant_id = 4
-    and c.merchant_id = 4
-    and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer')
-  limit
-    26;
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - First WP Customer Name - Merchant #4"
+# statement = '''
+#   select 
+#     distinct t.id
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 4
+#     and wp.merchant_id = 4
+#     and c.merchant_id = 4
+#     and position = 1
+#     and match(c.name_ngram, 'Ste') using best_fields with (operator='and')
+#   limit
+#     26;
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - First WP Customer Name - Merchant #5"
-statement = '''
-  select 
-    distinct t.id
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 5
-    and wp.merchant_id = 5
-    and c.merchant_id = 5
-    and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer')
-  limit
-    26;
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - First WP Customer Name - Merchant #5"
+# statement = '''
+#   select 
+#     distinct t.id
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 5
+#     and wp.merchant_id = 5
+#     and c.merchant_id = 5
+#     and position = 1
+#     and match(c.name_ngram, 'Ste') using best_fields with (operator='and')
+#   limit
+#     26;
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - First WP Customer Name - Merchant #1"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 1
-    and wp.merchant_id = 1
-    and c.merchant_id = 1
-    and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer');
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - First WP Customer Name - Merchant #1"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 1
+#     and wp.merchant_id = 1
+#     and c.merchant_id = 1
+#     and position = 1
+#     and match(c.name_ngram, 'Ste') using best_fields with (operator='and');
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - First WP Customer Name - Merchant #2"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 2
-    and wp.merchant_id = 2
-    and c.merchant_id = 2
-    and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer');
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - First WP Customer Name - Merchant #2"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 2
+#     and wp.merchant_id = 2
+#     and c.merchant_id = 2
+#     and position = 1
+#     and match(c.name_ngram, 'Ste') using best_fields with (operator='and');
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - First WP Customer Name - Merchant #3"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 3
-    and wp.merchant_id = 3
-    and c.merchant_id = 3
-    and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer');
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - First WP Customer Name - Merchant #3"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 3
+#     and wp.merchant_id = 3
+#     and c.merchant_id = 3
+#     and position = 1
+#     and match(c.name_ngram, 'Ste') using best_fields with (operator='and');
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - First WP Customer Name - Merchant #4"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 4
-    and wp.merchant_id = 4
-    and c.merchant_id = 4
-    and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer');
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - First WP Customer Name - Merchant #4"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 4
+#     and wp.merchant_id = 4
+#     and c.merchant_id = 4
+#     and position = 1
+#     and match(c.name_ngram, 'Ste') using best_fields with (operator='and');
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - First WP Customer Name - Merchant #5"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 5
-    and wp.merchant_id = 5
-    and c.merchant_id = 5
-    and position = 1
-    and match(c.name_ngram, 'Ste') using phrase with (analyzer='full_search_analyzer');
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - First WP Customer Name - Merchant #5"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 5
+#     and wp.merchant_id = 5
+#     and c.merchant_id = 5
+#     and position = 1
+#     and match(c.name_ngram, 'Ste') using best_fields with (operator='and');
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - Customer Phone - Merchant #1"
-statement = '''
-  select 
-    distinct t.id
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 1
-    and wp.merchant_id = 1
-    and c.merchant_id = 1
-    and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
-  limit
-    26;
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - Customer Phone - Merchant #1"
+# statement = '''
+#   select 
+#     distinct t.id
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 1
+#     and wp.merchant_id = 1
+#     and c.merchant_id = 1
+#     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
+#   limit
+#     26;
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - Customer Phone - Merchant #2"
-statement = '''
-  select 
-    distinct t.id
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 2
-    and wp.merchant_id = 2
-    and c.merchant_id = 2
-    and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
-  limit
-    26;
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - Customer Phone - Merchant #2"
+# statement = '''
+#   select 
+#     distinct t.id
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 2
+#     and wp.merchant_id = 2
+#     and c.merchant_id = 2
+#     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
+#   limit
+#     26;
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - Customer Phone - Merchant #3"
-statement = '''
-  select 
-    distinct t.id
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 3
-    and wp.merchant_id = 3
-    and c.merchant_id = 3
-    and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
-  limit
-    26;
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - Customer Phone - Merchant #3"
+# statement = '''
+#   select 
+#     distinct t.id
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 3
+#     and wp.merchant_id = 3
+#     and c.merchant_id = 3
+#     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
+#   limit
+#     26;
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - Customer Phone - Merchant #4"
-statement = '''
-  select 
-    distinct t.id
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 4
-    and wp.merchant_id = 4
-    and c.merchant_id = 4
-    and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
-  limit
-    26;
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - Customer Phone - Merchant #4"
+# statement = '''
+#   select 
+#     distinct t.id
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 4
+#     and wp.merchant_id = 4
+#     and c.merchant_id = 4
+#     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
+#   limit
+#     26;
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - Customer Phone - Merchant #5"
-statement = '''
-  select 
-    distinct t.id
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 5
-    and wp.merchant_id = 5
-    and c.merchant_id = 5
-    and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
-  limit
-    26;
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - Customer Phone - Merchant #5"
+# statement = '''
+#   select 
+#     distinct t.id
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 5
+#     and wp.merchant_id = 5
+#     and c.merchant_id = 5
+#     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard')
+#   limit
+#     26;
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - Customer Phone - Merchant #1"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 1
-    and wp.merchant_id = 1
-    and c.merchant_id = 1
-    and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - Customer Phone - Merchant #1"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 1
+#     and wp.merchant_id = 1
+#     and c.merchant_id = 1
+#     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - Customer Phone - Merchant #2"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 2
-    and wp.merchant_id = 2
-    and c.merchant_id = 2
-    and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - Customer Phone - Merchant #2"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 2
+#     and wp.merchant_id = 2
+#     and c.merchant_id = 2
+#     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - Customer Phone - Merchant #3"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 3
-    and wp.merchant_id = 3
-    and c.merchant_id = 3
-    and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - Customer Phone - Merchant #3"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 3
+#     and wp.merchant_id = 3
+#     and c.merchant_id = 3
+#     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - Customer Phone - Merchant #4"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 4
-    and wp.merchant_id = 4
-    and c.merchant_id = 4
-    and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - Customer Phone - Merchant #4"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 4
+#     and wp.merchant_id = 4
+#     and c.merchant_id = 4
+#     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - Customer Phone - Merchant #5"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t 
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 5
-    and wp.merchant_id = 5
-    and c.merchant_id = 5
-    and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - Customer Phone - Merchant #5"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t 
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 5
+#     and wp.merchant_id = 5
+#     and c.merchant_id = 5
+#     and match(c.phone_ngram, '12027') using phrase with (analyzer='standard');
+# '''
+# iterations = 20
+# concurrency = 2
 
 [[queries]]
 name = "New History Page Main Query - WP Time Frame - Merchant #1"
@@ -1148,8 +1148,8 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
@@ -1169,8 +1169,8 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
@@ -1190,8 +1190,8 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
@@ -1211,8 +1211,8 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
@@ -1232,8 +1232,8 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
@@ -1253,8 +1253,8 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 1
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
 iterations = 20
@@ -1272,8 +1272,8 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 2
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
 iterations = 20
@@ -1291,8 +1291,8 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 3
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
 iterations = 20
@@ -1310,8 +1310,8 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 4
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
 iterations = 20
@@ -1329,8 +1329,8 @@ statement = '''
     and ended_time > now() - interval '45 days'
     and t.merchant_id = 5
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
 iterations = 20
@@ -1352,8 +1352,8 @@ statement = '''
     and wp1.merchant_id = 1
     and wp2.merchant_id = 1
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer')
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and')
   limit
     26;
 '''
@@ -1376,8 +1376,8 @@ statement = '''
     and wp1.merchant_id = 2
     and wp2.merchant_id = 2
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer')
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and')
   limit
     26;
 '''
@@ -1400,8 +1400,8 @@ statement = '''
     and wp1.merchant_id = 3
     and wp2.merchant_id = 3
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer')
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and')
   limit
     26;
 '''
@@ -1424,8 +1424,8 @@ statement = '''
     and wp1.merchant_id = 4
     and wp2.merchant_id = 4
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer')
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and')
   limit
     26;
 '''
@@ -1448,8 +1448,8 @@ statement = '''
     and wp1.merchant_id = 5
     and wp2.merchant_id = 5
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer')
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and')
   limit
     26;
 '''
@@ -1472,8 +1472,8 @@ statement = '''
     and wp1.merchant_id = 1
     and wp2.merchant_id = 1
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer');
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and');
 '''
 iterations = 20
 concurrency = 2
@@ -1494,8 +1494,8 @@ statement = '''
     and wp1.merchant_id = 2
     and wp2.merchant_id = 2
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer');
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and');
 '''
 iterations = 20
 concurrency = 2
@@ -1516,8 +1516,8 @@ statement = '''
     and wp1.merchant_id = 3
     and wp2.merchant_id = 3
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer');
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and');
 '''
 iterations = 20
 concurrency = 2
@@ -1538,8 +1538,8 @@ statement = '''
     and wp1.merchant_id = 4
     and wp2.merchant_id = 4
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer');
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and');
 '''
 iterations = 20
 concurrency = 2
@@ -1560,8 +1560,8 @@ statement = '''
     and wp1.merchant_id = 5
     and wp2.merchant_id = 5
     and t.task_type_id=6
-    AND match(wp1.city_ngram, 'New') using phrase with (analyzer='full_search_analyzer')
-    AND MATCH(wp2.address_ngram, 'South') using phrase with (analyzer='full_search_analyzer');
+    AND match(wp1.city_ngram, 'New') using best_fields with (operator='and')
+    AND MATCH(wp2.address_ngram, 'South') using best_fields with (operator='and');
 '''
 iterations = 20
 concurrency = 2
@@ -1815,8 +1815,8 @@ statement = '''
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
@@ -1843,8 +1843,8 @@ statement = '''
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
@@ -1871,8 +1871,8 @@ statement = '''
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
@@ -1899,8 +1899,8 @@ statement = '''
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
@@ -1927,8 +1927,8 @@ statement = '''
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     )
   limit
     26;
@@ -1955,8 +1955,8 @@ statement = '''
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
 iterations = 20
@@ -1981,8 +1981,8 @@ statement = '''
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
 iterations = 20
@@ -2007,8 +2007,8 @@ statement = '''
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
 iterations = 20
@@ -2033,8 +2033,8 @@ statement = '''
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
 iterations = 20
@@ -2059,202 +2059,202 @@ statement = '''
     and wp.no_earlier_than <= now() - interval '30 hours'
     and wp.no_later_than >= now() - interval '28 hours'
     and (
-      match(t.title_ngram, 'ber') using phrase with (analyzer='full_search_analyzer')
-      or match(t.external_id_ngram, 'ber') using phrase with (analyzer='full_search_ngram_analyzer')
+      match(t.title_ngram, 'ber') using best_fields with (operator='and')
+      or match(t.external_id_ngram, 'ber') using best_fields with (operator='and')
     );
 '''
 iterations = 20
 concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - Unnecessary Joins - Merchant #1"
-statement = '''
-  select 
-    distinct t.id 
-  from 
-    tasks t
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 1
-    and wp.merchant_id = 1
-    and c.merchant_id = 1
-  limit 
-    26
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - Unnecessary Joins - Merchant #1"
+# statement = '''
+#   select 
+#     distinct t.id 
+#   from 
+#     tasks t
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 1
+#     and wp.merchant_id = 1
+#     and c.merchant_id = 1
+#   limit 
+#     26
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - Unnecessary Joins - Merchant #2"
-statement = '''
-  select 
-    distinct t.id 
-  from 
-    tasks t
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 2
-    and wp.merchant_id = 2
-    and c.merchant_id = 2
-  limit 
-    26
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - Unnecessary Joins - Merchant #2"
+# statement = '''
+#   select 
+#     distinct t.id 
+#   from 
+#     tasks t
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 2
+#     and wp.merchant_id = 2
+#     and c.merchant_id = 2
+#   limit 
+#     26
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - Unnecessary Joins - Merchant #3"
-statement = '''
-  select 
-    distinct t.id 
-  from 
-    tasks t
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 3
-    and wp.merchant_id = 3
-    and c.merchant_id = 3
-  limit 
-    26
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - Unnecessary Joins - Merchant #3"
+# statement = '''
+#   select 
+#     distinct t.id 
+#   from 
+#     tasks t
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 3
+#     and wp.merchant_id = 3
+#     and c.merchant_id = 3
+#   limit 
+#     26
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - Unnecessary Joins - Merchant #4"
-statement = '''
-  select 
-    distinct t.id 
-  from 
-    tasks t
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 4
-    and wp.merchant_id = 4
-    and c.merchant_id = 4
-  limit 
-    26
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - Unnecessary Joins - Merchant #4"
+# statement = '''
+#   select 
+#     distinct t.id 
+#   from 
+#     tasks t
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 4
+#     and wp.merchant_id = 4
+#     and c.merchant_id = 4
+#   limit 
+#     26
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Main Query - Unnecessary Joins - Merchant #5"
-statement = '''
-  select 
-    distinct t.id 
-  from 
-    tasks t
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 5
-    and wp.merchant_id = 5
-    and c.merchant_id = 5
-  limit 
-    26
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Main Query - Unnecessary Joins - Merchant #5"
+# statement = '''
+#   select 
+#     distinct t.id 
+#   from 
+#     tasks t
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 5
+#     and wp.merchant_id = 5
+#     and c.merchant_id = 5
+#   limit 
+#     26
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - Merchant #1"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 1
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - Unnecessary Joins - Merchant #1"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 1
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - Merchant #2"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 2
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - Unnecessary Joins - Merchant #2"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 2
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - Merchant #3"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 3
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - Unnecessary Joins - Merchant #3"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 3
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - Merchant #4"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 4
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - Unnecessary Joins - Merchant #4"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 4
+# '''
+# iterations = 20
+# concurrency = 2
 
-[[queries]]
-name = "New History Page Count Query - Merchant #5"
-statement = '''
-  select 
-    count(distinct t.id)
-  from 
-    tasks t
-    join way_points wp on wp.task_id = t.id
-    join customers c on c.id = wp.customer_id
-  where 
-    status IN (4,7) 
-    and ended_time > now() - interval '45 days'
-    and t.merchant_id = 5
-'''
-iterations = 20
-concurrency = 2
+# [[queries]]
+# name = "New History Page Count Query - Unnecessary Joins - Merchant #5"
+# statement = '''
+#   select 
+#     count(distinct t.id)
+#   from 
+#     tasks t
+#     join way_points wp on wp.task_id = t.id
+#     join customers c on c.id = wp.customer_id
+#   where 
+#     status IN (4,7) 
+#     and ended_time > now() - interval '45 days'
+#     and t.merchant_id = 5
+# '''
+# iterations = 20
+# concurrency = 2
 
 [teardown]
 statement_files = ["sql/bringg_teardown.sql"]
