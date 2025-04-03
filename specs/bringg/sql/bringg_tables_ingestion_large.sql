@@ -16,10 +16,10 @@ insert into
       floor(random() * 8) + 1 as status,
       now() - (floor(random() * 730) * interval '1 day') as ended_time,
       case
-        when random() < 0.5 then 1
-        when random() < 0.5 then 2
-        when random() < 0.5 then 3
-        when random() < 0.5 then 4
+        when id % 31 >= 15 then 1
+        when id % 31 >= 7 then 2
+        when id % 31 >= 3 then 3
+        when id % 31 >= 1 then 4
         else 5
       end as merchant_id,
       floor(random() * 250) + 1 as team_id,
@@ -29,9 +29,16 @@ insert into
   );
 
 insert into
-  customers (id, name, phone) (
+  customers (id, merchant_id, name, phone) (
     select
       id,
+      case
+        when id % 31 >= 15 then 1
+        when id % 31 >= 7 then 2
+        when id % 31 >= 3 then 3
+        when id % 31 >= 1 then 4
+        else 5
+      end as merchant_id,
       ['James Williams', 'Robert Miller', 'James Burns', 'Michael Hoffman', 'Daniel Munoz', 'Katherine Higgins', 'Regina Smith', 'Sharon Baxter', 'Kenneth Sanford', 'Sarah Lewis', 'Gregory Murray', 'Thomas Brown', 'Brandi Jordan', 'James Reyes', 'Dylan Ferguson', 'Shannon Ramos', 'Jasmine Hernandez', 'Janet Booth', 'Melissa Williams', 'Terri Schaefer', 'Dawn Carson', 'Bonnie Carter', 'Deanna Galvan', 'Mary Santos', 'Jeremy Bowers', 'Jackie Collins', 'Yesenia Webb', 'Erik Rodriguez', 'Jeremy Carey', 'Raymond Robles', 'Catherine Francis', 'Richard Sellers', 'Michelle Harrell', 'Mary Hodge', 'Lisa Gibbs', 'Kathryn Vang', 'Dana Valentine', 'Nathan Gordon', 'Thomas Roberts', 'Elizabeth Schultz', 'Patricia Ross', 'Jessica Jones', 'Debbie Johnson', 'Nicole Johnson', 'Emily Buckley', 'Joanna Mcdaniel', 'Mark Johnson', 'Angela Gonzalez', 'Elizabeth Garza', 'Linda Smith', 'Lucas Hill', 'Ashley Daugherty', 'Linda Harris', 'John Allen', 'Craig Rollins', 'Jamie Carey', 'Diana Lopez', 'Kevin Mccullough', 'Randy Tran Jr.', 'Leslie Martinez', 'Anthony Villa', 'Kathryn Hale', 'Virginia Snyder', 'Mr. Theodore Marshall MD', 'Gregory Burgess', 'Linda Brown', 'Kathryn Blevins', 'Ryan Jenkins', 'Rhonda Hendricks', 'Elizabeth Clay', 'Robert Casey', 'Gregory Gallegos', 'Sarah Rogers', 'Jacob Steele', 'Paul Stone', 'Stacy Hancock', 'Richard Simon', 'Cassandra Hurley', 'Matthew Peck', 'Sherry Lester', 'Julie Lutz', 'Thomas Tyler', 'Stefanie Richard', 'Jared Duffy', 'Ryan Morgan', 'Craig Lee', 'Shane Goodman', 'John Parrish', 'Daniel Tate', 'Benjamin Garza', 'Amanda Long', 'David Williams', 'Jason Payne', 'Dawn Baker', 'Sean Carpenter', 'Kyle Ramos', 'Stephen Armstrong', 'Matthew Molina', 'Teresa Maldonado', 'Michael Wilkins'] [floor(random()*100)+1] as name,
       ['+12953505448', '+11905184951', '+18042482553', '+19149712387', '+16166764600', '+12027300554', '+11892633628', '+15323557247', '+15222090502', '+12671277239', '+11090721920', '+12105528972', '+19384841641', '+16949792753', '+14289338017', '+10471796332', '+19842432729', '+16461975114', '+14675808007', '+19281911777', '+10187697937', '+18817774023', '+15502769171', '+13495401787', '+14094596521', '+15003539128', '+10356253565', '+14423173913', '+13475220390', '+19611170654', '+15854712143', '+13992167054', '+18841791460', '+14356578039', '+17914937496', '+17913249959', '+10850334373', '+10865044441', '+13182258438', '+18351572820', '+16315540550', '+15481506772', '+16150430101', '+12125861062', '+14129306347', '+14502216620', '+11243948618', '+19452492642', '+15815673870', '+19383545060', '+15229589429', '+13515441283', '+13882762938', '+15532711512', '+16737470762', '+12521340743', '+11344906687', '+12168712139', '+12721549323', '+18574651737', '+19882643813', '+17747628798', '+10890134811', '+10644500922', '+19959000741', '+18117951197', '+16090813528', '+19105142194', '+13370419762', '+17647863830', '+10318820001', '+15481786973', '+18944202879', '+16793723407', '+11856803011', '+10363713361', '+14132540969', '+17489239825', '+14595961929', '+13308668108', '+17858400641', '+11664038925', '+15692672292', '+18873148203', '+11450323169', '+13493952598', '+12600579317', '+17147834562', '+14059076825', '+10162330254', '+15291908735', '+15108977285', '+15118464508', '+15901987932', '+11770023652', '+18058870336', '+14964678876', '+18544892084', '+15257910603', '+13334618420'] [floor(random()*100)+1] as phone
     from
@@ -41,6 +48,7 @@ insert into
 insert into
   way_points (
     id,
+    merchant_id,
     task_id,
     customer_id,
     position,
@@ -52,7 +60,14 @@ insert into
     with base as (
       select
         id,
-        id / 2 as task_id,
+        case
+          when ((id + 1) / 2) % 31 >= 15 then 1
+          when ((id + 1) / 2) % 31 >= 7 then 2
+          when ((id + 1) / 2) % 31 >= 3 then 3
+          when ((id + 1) / 2) % 31 >= 1 then 4
+          else 5
+        end as merchant_id,
+        (id + 1) / 2 as task_id,
         floor(random() * 100000000) + 1 as customer_id,
         (id % 2) + 1 as position,
         now() - (floor(random() * 730 * 24) * interval '1 hours') as no_earlier_than,
