@@ -1,0 +1,508 @@
+[[queries]]
+name = "BBuy query - Amit test - task group"
+statement = '''
+  with wp1 as (
+  select
+    task_id,
+    no_earlier_than
+  from
+    way_points wp
+  where
+    merchant_id = 2288
+    AND position = 1
+    and (
+      (
+        "wp"."no_earlier_than" is not null
+        or "wp"."no_later_than" is not null
+      )
+      and (
+        "wp"."no_earlier_than" is null
+        or "wp"."no_earlier_than" >= '2025-11-02T22:00:00.000Z'
+      )
+      and (
+        "wp"."no_later_than" is null
+        or "wp"."no_later_than" <= '2025-11-09T21:59:59.999Z'
+      )
+    )
+    or (
+      "wp"."scheduled_at" is not null
+      and "wp"."no_earlier_than" is null
+      and "wp"."no_later_than" is null
+      and "wp"."scheduled_at" >= '2025-11-02T22:00:00.000Z'
+      and "wp"."scheduled_at" <= '2025-11-09T21:59:59.999Z'
+    )
+),
+wp2 as (
+  select
+    task_id,
+    no_earlier_than
+  from
+    way_points wp
+  where
+    merchant_id = 2288
+    AND position = 2
+    and (
+      (
+        "wp"."no_earlier_than" is not null
+        or "wp"."no_later_than" is not null
+      )
+      and (
+        "wp"."no_earlier_than" is null
+        or "wp"."no_earlier_than" >= '2025-11-02T22:00:00.000Z'
+      )
+      and (
+        "wp"."no_later_than" is null
+        or "wp"."no_later_than" <= '2025-11-09T21:59:59.999Z'
+      )
+    )
+    or (
+      "wp"."scheduled_at" is not null
+      and "wp"."no_earlier_than" is null
+      and "wp"."no_later_than" is null
+      and "wp"."scheduled_at" >= '2025-11-02T22:00:00.000Z'
+      and "wp"."scheduled_at" <= '2025-11-09T21:59:59.999Z'
+    )
+),
+base_tasks as (
+  select
+    id,
+    run_id,
+    team_id,
+    user_id
+  from
+    tasks
+    left join wp1 on tasks.id = wp1.task_id
+    left join wp2 on tasks.id = wp2.task_id
+  where
+    merchant_id = 2288
+    and delete_at is null
+    and status in (0, 1, 2, 3, 5, 6, 9, 10)
+    and team_id in (215472, 213290, 213291, 211587)
+    and not ready_to_execute = true
+    and service_plan_id in (1330, 1609, 1610, 1325)
+    and '60288_Refrigerator Delivery Only' = any(required_skills)
+    and '60274_Refrigeration Install Premium - Plumbing' = any(required_skills)
+    and (
+      wp1.task_id is not null
+      or wp2.task_id is not null
+    )
+),
+"inner_tasks_query" as (
+  select
+    "tasks"."id",
+    "users"."name" as "user_name",
+    "users"."id" as "user_id",
+    "teams"."name" as "main_group_sort_value",
+    "teams"."name" as "team_name",
+    "teams"."id" as "team_id",
+    "tasks"."run_id" as "route_id",
+    CASE
+      WHEN runs.id is null THEN null
+      WHEN planned_routes.title IS NULL
+      AND service_areas.name is NULL THEN concat('Route-', runs.id)
+      WHEN planned_routes.title IS NOT NULL
+      AND service_areas.name is not null THEN concat(planned_routes.title, '-', service_areas.name)
+      WHEN planned_routes.title IS NOT NULL THEN planned_routes.title
+      ELSE service_areas.name
+    END as route_name,
+    CAST(
+      COALESCE(runs.started_at, runs.scheduled_start_time) AS TIMESTAMP
+    ) as secondary_group_sort_value,
+    CAST(
+      COALESCE(runs.started_at, runs.scheduled_start_time) AS TIMESTAMP
+    ) as route_start_time
+  from
+    base_tasks as "tasks"
+    left join "runs" on "runs"."id" = "tasks"."run_id"
+    and runs.merchant_id = 2288
+    left join "users" on "users"."id" = "tasks"."user_id"
+    and users.merchant_id = 2288
+    and driver = true
+    left join "planned_routes" on "runs"."planned_route_id" = "planned_routes"."id"
+    and planned_routes.merchant_id = 2288
+    left join "service_areas" on "runs"."service_area_id" = "service_areas"."id"
+    and service_areas.merchant_id = 2288
+    left join "teams" on "teams"."id" = "tasks"."team_id"
+    and teams.merchant_id = 2288
+)
+select
+  "team_name",
+  "team_name" as "main_group_sort_value",
+  "route_start_time" as "secondary_group_sort_value",
+  max(team_id) as team_id,
+  "route_start_time",
+  max(route_name) as route_name,
+  max(route_id) as route_id,
+  count(*) as count_per_sub
+from
+  "inner_tasks_query"
+group by
+  "team_name",
+  "team_id",
+  "route_start_time",
+  "route_id"
+order by
+  "team_name" asc,
+  "team_id" asc,
+  "route_start_time" asc,
+  "route_id" asc
+limit
+  1000;
+
+'''
+iterations = 10
+concurrency = 2
+
+[[queries]]
+name = "BBuy query - Amit test - task"
+statement = '''
+  with wp1 as (
+  select
+    task_id,
+    no_earlier_than
+  from
+    way_points wp
+  where
+    merchant_id = 2288
+    AND position = 1
+    and (
+      (
+        "wp"."no_earlier_than" is not null
+        or "wp"."no_later_than" is not null
+      )
+      and (
+        "wp"."no_earlier_than" is null
+        or "wp"."no_earlier_than" >= '2025-11-02T22:00:00.000Z'
+      )
+      and (
+        "wp"."no_later_than" is null
+        or "wp"."no_later_than" <= '2025-11-09T21:59:59.999Z'
+      )
+    )
+    or (
+      "wp"."scheduled_at" is not null
+      and "wp"."no_earlier_than" is null
+      and "wp"."no_later_than" is null
+      and "wp"."scheduled_at" >= '2025-11-02T22:00:00.000Z'
+      and "wp"."scheduled_at" <= '2025-11-09T21:59:59.999Z'
+    )
+),
+wp2 as (
+  select
+    task_id,
+    no_earlier_than
+  from
+    way_points wp
+  where
+    merchant_id = 2288
+    AND position = 2
+    and (
+      (
+        "wp"."no_earlier_than" is not null
+        or "wp"."no_later_than" is not null
+      )
+      and (
+        "wp"."no_earlier_than" is null
+        or "wp"."no_earlier_than" >= '2025-11-02T22:00:00.000Z'
+      )
+      and (
+        "wp"."no_later_than" is null
+        or "wp"."no_later_than" <= '2025-11-09T21:59:59.999Z'
+      )
+    )
+    or (
+      "wp"."scheduled_at" is not null
+      and "wp"."no_earlier_than" is null
+      and "wp"."no_later_than" is null
+      and "wp"."scheduled_at" >= '2025-11-02T22:00:00.000Z'
+      and "wp"."scheduled_at" <= '2025-11-09T21:59:59.999Z'
+    )
+),
+base_tasks as (
+  select
+    id,
+    run_id,
+    team_id,
+    user_id
+  from
+    tasks
+    left join wp1 on tasks.id = wp1.task_id
+    left join wp2 on tasks.id = wp2.task_id
+  where
+    merchant_id = 2288
+    and delete_at is null
+    and status in (0, 1, 2, 3, 5, 6, 9, 10)
+    and team_id in (215472, 213290, 213291, 211587)
+    and not ready_to_execute = true
+    and service_plan_id in (1330, 1609, 1610, 1325)
+    and '60288_Refrigerator Delivery Only' = any(required_skills)
+    and '60274_Refrigeration Install Premium - Plumbing' = any(required_skills)
+    and (
+      wp1.task_id is not null
+      or wp2.task_id is not null
+    )
+    and (
+      "tasks"."group_uuid" is null
+      or (
+        "tasks"."group_uuid" is not null
+        and "tasks"."group_leader_id" is null
+      )
+    )
+  order by
+    "id" asc
+  limit
+    100
+)
+select
+  *,
+  "id" as "sort_value",
+  "team_name" as "main_group_sort_value",
+  "route_start_time" as "secondary_group_sort_value"
+from
+  (
+    select
+      "tasks"."id",
+      "users"."name" as "user_name",
+      "users"."id" as "user_id",
+      "teams"."name" as "team_name",
+      "teams"."id" as "team_id",
+      "tasks"."run_id" as "route_id",
+      CASE
+        WHEN runs.id is null THEN null
+        WHEN planned_routes.title IS NULL
+        AND service_areas.name is NULL THEN concat('Route-', runs.id)
+        WHEN planned_routes.title IS NOT NULL
+        AND service_areas.name is not null THEN concat(planned_routes.title, '-', service_areas.name)
+        WHEN planned_routes.title IS NOT NULL THEN planned_routes.title
+        ELSE service_areas.name
+      END as route_name,
+      CAST(
+        COALESCE(runs.started_at, runs.scheduled_start_time) AS TIMESTAMP
+      ) as route_start_time
+    from
+      base_tasks as "tasks"
+      left join "runs" on "runs"."id" = "tasks"."run_id"
+      and runs.merchant_id = 2288
+      left join "users" on "users"."id" = "tasks"."user_id"
+      and users.merchant_id = 2288
+      and driver = true
+      left join "planned_routes" on "runs"."planned_route_id" = "planned_routes"."id"
+      and planned_routes.merchant_id = 2288
+      left join "service_areas" on "runs"."service_area_id" = "service_areas"."id"
+      and service_areas.merchant_id = 2288
+      left join "teams" on "teams"."id" = "tasks"."team_id"
+      and teams.merchant_id = 2288
+  ) as "tasks";
+'''
+iterations = 10
+concurrency = 2
+
+
+[[queries]]
+name = "BBuy 15 teams no time window - task group"
+statement = '''
+  with base_tasks as (
+  select
+    id,
+    run_id,
+    team_id,
+    user_id
+  from
+    tasks
+  where
+    (
+      "tasks"."merchant_id" = 2288
+      and "tasks"."delete_at" is null
+      and "tasks"."group_leader_id" is null
+      and "tasks"."status" in (0, 1, 2, 3, 5, 6, 9, 10)
+      and (
+        (
+          "tasks"."team_id" in (
+            213290,
+            212548,
+            213532,
+            213531,
+            217140,
+            213283,
+            213540,
+            213293,
+            213525,
+            213535,
+            213538,
+            213934,
+            213288,
+            213539,
+            213289
+          )
+        )
+        and (not "tasks"."ready_to_execute" = true)
+      )
+    )
+),
+"inner_tasks_query" as (
+  select
+    *,
+    "team_name" as "main_group_sort_value",
+    "route_start_time" as "secondary_group_sort_value"
+  from
+    (
+      select
+        "tasks"."id",
+        "users"."name" as "user_name",
+        "users"."id" as "user_id",
+        "teams"."name" as "team_name",
+        "teams"."id" as "team_id",
+        "tasks"."run_id" as "route_id",
+        CASE
+          WHEN runs.id is null THEN null
+          WHEN planned_routes.title IS NULL
+          AND service_areas.name is NULL THEN concat('Route-', runs.id)
+          WHEN planned_routes.title IS NOT NULL
+          AND service_areas.name is not null THEN concat(planned_routes.title, '-', service_areas.name)
+          WHEN planned_routes.title IS NOT NULL THEN planned_routes.title
+          ELSE service_areas.name
+        END as route_name,
+        cast(
+          COALESCE(runs.started_at, runs.scheduled_start_time) as timestamp
+        ) as route_start_time
+      from
+        base_tasks as "tasks"
+        left join "runs" on "runs"."id" = "tasks"."run_id"
+        and runs.merchant_id = 2288
+        left join "users" on "users"."id" = "tasks"."user_id"
+        and users.merchant_id = 2288
+        and driver = true
+        left join "planned_routes" on "runs"."planned_route_id" = "planned_routes"."id"
+        and planned_routes.merchant_id = 2288
+        left join "service_areas" on "runs"."service_area_id" = "service_areas"."id"
+        and service_areas.merchant_id = 2288
+        left join "teams" on "teams"."id" = "tasks"."team_id"
+        and teams.merchant_id = 2288      
+    ) as "tasks"
+)
+select
+  *,
+  "team_name" as "main_group_sort_value",
+  "route_start_time" as "secondary_group_sort_value"
+from
+  (
+    select
+      "team_name",
+      max(team_id) as team_id,
+      "route_start_time",
+      max(route_name) as route_name,
+      max(route_id) as route_id,
+      count(*) as count_per_sub,
+      sum(count(*)) over (partition by team_name, team_id) as count_per_group
+    from
+      "inner_tasks_query"
+    group by
+      "team_name",
+      "team_id",
+      "route_start_time",
+      "route_id"
+    order by
+      "team_name" asc,
+      "team_id" asc,
+      "route_start_time" asc,
+      "route_id" asc
+  ) as "subquery"
+limit
+  1000
+'''
+iterations = 10
+concurrency = 2
+
+[[queries]]
+name = "BBuy 15 teams no time window - task"
+statement = '''
+  with base_tasks as (
+  select
+    id,
+    run_id,
+    team_id,
+    user_id,
+    external_id
+  from
+    tasks
+  where
+    (
+      "tasks"."merchant_id" = 2288
+      and "tasks"."delete_at" is null
+      and (
+        "tasks"."group_uuid" is null
+        or (
+          "tasks"."group_uuid" is not null
+          and "tasks"."group_leader_id" is null
+        )
+      )
+      and "tasks"."status" in (0, 1, 2, 3, 5, 6, 9, 10)
+      and "tasks"."team_id" in (
+        213290,
+        212548,
+        213532,
+        213531,
+        217140,
+        213283,
+        213540,
+        213293,
+        213525,
+        213535,
+        213538,
+        213934,
+        213288,
+        213539,
+        213289
+      )
+      and not "tasks"."ready_to_execute" = true
+    )
+  order by
+    "external_id" asc,
+    "tasks"."id" asc
+  limit
+    100
+)
+select
+  *,
+  "external_id" as "sort_value",
+  "team_name" as "main_group_sort_value",
+  "route_start_time" as "secondary_group_sort_value"
+from
+  (
+    select
+      "tasks"."id",
+      "users"."name" as "user_name",
+      "users"."id" as "user_id",
+      "teams"."name" as "team_name",
+      "teams"."id" as "team_id",
+      "tasks"."run_id" as "route_id",
+      CASE
+        WHEN runs.id is null THEN null
+        WHEN planned_routes.title IS NULL
+        AND service_areas.name is NULL THEN concat('Route-', runs.id)
+        WHEN planned_routes.title IS NOT NULL
+        AND service_areas.name is not null THEN concat(planned_routes.title, '-', service_areas.name)
+        WHEN planned_routes.title IS NOT NULL THEN planned_routes.title
+        ELSE service_areas.name
+      END as route_name,
+      CAST(
+        COALESCE(runs.started_at, runs.scheduled_start_time) AS TIMESTAMP
+      ) as route_start_time,
+      "tasks"."external_id"
+    from
+      base_tasks as "tasks"
+      left join "runs" on "runs"."id" = "tasks"."run_id"
+      and runs.merchant_id = 2288
+      left join "users" on "users"."id" = "tasks"."user_id"
+      and users.merchant_id = 2288
+      and driver = true
+      left join "planned_routes" on "runs"."planned_route_id" = "planned_routes"."id"
+      and planned_routes.merchant_id = 2288
+      left join "service_areas" on "runs"."service_area_id" = "service_areas"."id"
+      and service_areas.merchant_id = 2288
+      left join "teams" on "teams"."id" = "tasks"."team_id"
+      and teams.merchant_id = 2288
+  ) as "tasks";
+'''
+iterations = 10
+concurrency = 2
